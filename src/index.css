@@ -356,21 +356,32 @@ section {
   }
   .hero .subtitle {
     font-size: 1.3rem;
+    margin-top: -100px;
   }
   .hero .date {
     font-size: 1.2rem;
   }
 
-  /* Family responsive */
+  /* Family typography mobile */
   .family {
-    padding: 60px 20px;
-    background-image: url("./assets/FamilyMobile.jpg");
-    background-size: cover;
-    background-position: center;
+    padding: 20px 20px;
   }
 
-  .family-grid {
-    gap: 20px;
+  .family-title {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+    margin-bottom: 30px;
+  }
+
+  .family-card {
+    padding: 15px 15px 5px 15px;
+  }
+
+  .family-card h3 {
+    font-size: clamp(0.7rem, 4.5vw, 1.2rem);
+  }
+
+  .family-card p {
+    font-size: clamp(0.85rem, 3.5vw, 0.95rem);
   }
 
   /* Countdown */
@@ -405,6 +416,19 @@ section {
   }
 
   /* Event cards */
+
+  .event {
+    padding: 0 20px 20px 20px;
+  }
+  .event-map {
+    position: relative;
+  }
+
+  .map-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
   .event-card {
     max-width: 100%;
     padding: 20px 15px;
@@ -421,4 +445,136 @@ section {
   .event-footer {
     font-size: 2rem;
   }
+}
+.map-overlay {
+  display: block;
+}
+
+.rsvp {
+  padding: 80px 20px;
+}
+
+.rsvp h2 {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 769px) {
+  .map-overlay {
+    display: none;
+  }
+}
+
+/* ========================= */
+/*         ANIMATII          */
+/* ========================= */
+/* Reveal initial state */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+  will-change: opacity, transform;
+}
+
+/* Active state */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Varianta mai soft pentru titluri */
+.reveal-soft {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal-soft.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover elegant doar pe desktop */
+@media (min-width: 769px) {
+  .event-card:hover,
+  .family-card:hover,
+  .countdown-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+    transition: 0.4s ease;
+  }
+}
+
+.hero .subtitle {
+  transition-delay: 0.1s;
+}
+
+.hero h1 {
+  transition-delay: 0.3s;
+}
+
+.hero .date {
+  transition-delay: 0.5s;
+}
+
+/* ========================= */
+/*   FAMILY STAGGER EFFECT   */
+/* ========================= */
+
+/* Părinți */
+.family-grid:nth-of-type(1) .family-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.family-grid:nth-of-type(1) .family-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+/* Nași */
+.family-grid:nth-of-type(2) .family-card:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.family-grid:nth-of-type(2) .family-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+/* ========================= */
+/*        EVENT STAGGER      */
+/* ========================= */
+
+.event-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.event-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.event-footer {
+  transition-delay: 0.6s;
+}
+
+/* ========================= */
+/*     COUNTDOWN STAGGER     */
+/* ========================= */
+
+.countdown h2 {
+  transition-delay: 0.1s;
+}
+
+.countdown-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.countdown-card:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.countdown-card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.countdown-card:nth-child(4) {
+  transition-delay: 0.5s;
 }
