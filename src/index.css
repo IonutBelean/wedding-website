@@ -1,13 +1,424 @@
-body {
+/* RESET */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6370;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* BODY */
+body {
+  font-family: "Georgia", serif;
+  background-color: #f8f5f0;
+  color: #2c2c2c;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("./assets/HeroDesktop.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(248, 245, 240, 1) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero .subtitle,
+.hero h1,
+.hero .date {
+  position: relative;
+  z-index: 3;
+  margin: 0.5rem 0;
+  font-style: oblique;
+}
+
+.hero .subtitle {
+  font-size: 1.9rem;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  font-family: "Parisienne", cursive;
+}
+
+.hero .date {
+  font-size: 1.8rem;
+}
+
+/* SECTIONS GENERAL */
+section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* FAMILY SECTION */
+.family {
+  position: relative;
+  padding: 100px 320px;
+  text-align: center;
+  background-image: url("./assets/Family.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Gradient de tranziție lină sus */
+.family::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(248, 245, 240, 1) 0%,
+    rgba(248, 245, 240, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Gradient de tranziție lină jos */
+.family::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(248, 245, 240, 1) 0%,
+    rgba(248, 245, 240, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Titlu și grilă peste overlay */
+.family-title,
+.family-grid,
+.family-card {
+  position: relative;
+  z-index: 2;
+}
+
+.family-title {
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  margin-bottom: 80px;
+}
+
+.family-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.family-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.family-card p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* EVENT SECTION VERTICAL */
+.event-grid-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.event-card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.event-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.event-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.event-map iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.event-invite {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.event-date {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.event-footer {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 30px;
+  font-size: 2.5rem;
+}
+
+/* COUNTDOWN SECTION */
+.countdown {
+  padding: 100px 520px;
+  text-align: center;
+  background-color: #ecdce2;
+  color: #2c2c2c;
+  font-family: "Georgia", serif;
+}
+
+.countdown h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+}
+
+.countdown-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-card span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #d6336c;
+}
+
+.countdown-card p {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* RSVP SECTION */
+.rsvp {
+  padding: 100px 20px;
+  text-align: center;
+  background: #f4f1ed;
+}
+
+.rsvp h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FORM */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rsvp-form input,
+.rsvp-form textarea {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.rsvp-form textarea {
+  min-height: 100px;
+}
+
+.rsvp-radio {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1rem;
+}
+
+.rsvp-radio input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* BUTTON */
+.rsvp-form button {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #d6336c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.rsvp-form button:hover {
+  opacity: 0.85;
+}
+
+/* Mobile: <768px */
+@media (max-width: 768px) {
+  /* Hero responsive */
+  .hero {
+    background-image: url("./assets/HeroMobile.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero .subtitle {
+    font-size: 1.3rem;
+  }
+  .hero .date {
+    font-size: 1.2rem;
+  }
+
+  /* Family responsive */
+  .family {
+    padding: 60px 20px;
+    background-image: url("./assets/FamilyMobile.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .family-grid {
+    gap: 20px;
+  }
+
+  /* Countdown */
+  .countdown {
+    padding: 50px 20px;
+  }
+
+  .countdown h2 {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .countdown-card {
+    width: 100%;
+    padding: 12px 4px;
+    min-width: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+  .countdown-card span {
+    font-size: clamp(0.9rem, 4vw, 1.4rem);
+  }
+
+  .countdown-card p {
+    font-size: clamp(0.55rem, 2.5vw, 0.75rem);
+  }
+
+  /* Event cards */
+  .event-card {
+    max-width: 100%;
+    padding: 20px 15px;
+  }
+
+  .event-invite {
+    font-size: 1.3rem;
+  }
+
+  .event-date {
+    font-size: 1.8rem;
+  }
+
+  .event-footer {
+    font-size: 2rem;
+  }
 }
